@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> inOrder(Node* root)
+    {
+        //code here
+        stack<Node*>s;
+     vector<int>inorder;
+     Node *node=root;
+     while(node || !s.empty()){
+         while(node){
+             s.push(node);
+             node=node->left;
+         }
+         node=s.top();
+         s.pop();
+         inorder.push_back(node->data);
+         node=node->right;
+     }
+     return inorder;
+    }
+};
